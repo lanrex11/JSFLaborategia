@@ -84,6 +84,11 @@ Faces 4.0-ekin CDI-a beharrezkoa da.
 			<version>15.0.19</version>
 			<classifier>jakarta</classifier>
 		</dependency>
+		<dependency>
+			<groupId>org.omnifaces</groupId>
+			<artifactId>omnifaces</artifactId>
+			<version>4.7.17</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<!-- Izena ezartzen ez bada WAR fitxategia
