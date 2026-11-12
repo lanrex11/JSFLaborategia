@@ -41,11 +41,16 @@
 					<td>Data (PrimeFaces-ekin):</td>
 					<td><p:datePicker id="data" value="#{login.data}"
 							yearNavigator="true" inline="true">
-							<p:ajax event="dateSelect" listener="#{login.onDateSelect}" update="mezuak">
+							<p:ajax event="dateSelect" listener="#{login.onDateSelect}"
+								update="mezuak">
 							</p:ajax>
-						</p:datePicker>
-					</td>
-
+						</p:datePicker></td>
+				</tr>
+				<tr>
+					<td><h3>Erabiltzailearen mota:</h3></td>
+					<td><h:selectOneMenu value="#{login.mota}" converter="ErabiltzailearenMotaConverter">
+							<f:selectItems value="#{login.motak}" />
+						</h:selectOneMenu></td>
 				</tr>
 			</table>
 			<p>
