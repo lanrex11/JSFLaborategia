@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html"
-	xmlns:f="jakarta.faces.core">
+	xmlns:f="jakarta.faces.core" xmlns:p="primefaces">
 <f:view>
 	<h:head>
 		<title>JavaServer Faces aplikazioa</title>
+
 	</h:head>
 	<h:body>
 		<h:form>
@@ -22,21 +23,44 @@
 					<td><h:inputSecret id="pass" redisplay="true"
 							value="#{login.pasahitza}">
 							<f:validateLongRange minimum="1" maximum="500" />
+							<!--	f:validateLongRange-ren errorea beheran erakutsi ONARTU sakatu gabe 
+									onblur egitean validazioa egiten da -->
+							<f:ajax execute="pass" render="mezuak" />
 						</h:inputSecret></td>
 					<td><h:message for="pass" style="color:red" /></td>
 				</tr>
 				<tr>
-					<td>Data (yyyy/MM/dd):</td>
+					<!-- <td>Data (yyyy/MM/dd):</td>
 					<td><h:inputText id="data" value="#{login.data}">
 							<f:convertDateTime pattern="yyyy/MM/dd" />
+							<!  bat bestearen atzetik
+							<f:ajax execute="pass" render="mezuak" />
+
 						</h:inputText></td>
-					<td><h:message for="data" style="color:red" /></td>
+					<td><h:message for="data" style="color:red" /></td>-->
+					<td>Data (PrimeFaces-ekin):</td>
+					<td><p:datePicker id="data" value="#{login.data}"
+							yearNavigator="true" inline="true">
+							<p:ajax event="dateSelect" listener="#{login.onDateSelect}" update="mezuak">
+							</p:ajax>
+						</p:datePicker>
+					</td>
+
 				</tr>
 			</table>
 			<p>
 				<h:commandButton value="Onartu" action="#{login.egiaztatu}" />
+				<h:commandButton value="Pirata" immediate="true" action="error"
+					onclick="if (!confirm('Ziur zaude?')) return false" />
+				<!--  inmediate=true: BZaren 3. eta 4. pausoak jauzi 
+					3) Baliozkotzeak prozesatu: baliozkotze guztiak aplikatu egiten dira.
+					4) Ereduaren balioak eguneratu: Bean-etako propietateak eguneratzen dira. Bihurtu,
+					baliozkotu eta osagaietan gorde diren balioak bean-etan gordetzen dira.
+					
+					onlick ==> js atributua da: KODEA HTMLan bertan
+				 -->
 			</p>
-			<h:messages style="color:blue" />
+			<h:messages id="mezuak" style="color:blue" />
 		</h:form>
 	</h:body>
 </f:view>

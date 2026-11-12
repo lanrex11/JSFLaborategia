@@ -4,6 +4,9 @@
 <f:view>
 	<h:head>
 		<title>JavaServer Faces aplikazioa</title>
+		<h:outputScript library="js" name="infoJavaScript.js" />
+		<!-- JS exekutatu orria exekutazean -->
+
 	</h:head>
 	<h:body>
 		<h:form>
@@ -17,6 +20,9 @@
 				</p>
 			</h3>
 		</h:form>
+		<h:commandButton value="Onartu"
+			onclick="showMessage('Ez dago definituta nora joan')"> <!-- Goiko funtzioak hemen ere -->
+		</h:commandButton>
 	</h:body>
 </f:view>
 </html>

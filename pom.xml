@@ -78,6 +78,12 @@ Faces 4.0-ekin CDI-a beharrezkoa da.
 			<artifactId>junit-jupiter</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>15.0.19</version>
+			<classifier>jakarta</classifier>
+		</dependency>
 	</dependencies>
 	<build>
 		<!-- Izena ezartzen ez bada WAR fitxategia
