@@ -31,12 +31,16 @@ public class LoginBean implements Serializable {
 	private ErabiltzailearenMota mota;
 	private static List<ErabiltzailearenMota> motak;
 
-	public LoginBean() {
-		motak = new ArrayList<ErabiltzailearenMota>();
-		motak.add(new ErabiltzailearenMota(1, "ikaslea"));
-		motak.add(new ErabiltzailearenMota(2, "irakaslea"));
-
-	}
+	// omifaces ondo funzionatu estatikoa denenan, hemen bezala, beste equals eta
+	// hasCode implmentatu
+	// ErabiltzailearenMotan
+	/*
+	 * public LoginBean() { motak = new ArrayList<ErabiltzailearenMota>();
+	 * motak.add(new ErabiltzailearenMota(1, "ikaslea")); motak.add(new
+	 * ErabiltzailearenMota(2, "irakaslea"));
+	 * 
+	 * }
+	 */
 
 	public ErabiltzailearenMota getMota() {
 		return mota;
@@ -47,7 +51,13 @@ public class LoginBean implements Serializable {
 		System.out.println("Erabiltzailearen mota: " + mota.getKodea() + "/" + mota.getErabMota());
 	}
 
+	// public List<ErabiltzailearenMota> getMotak() {
+	// return motak;
+	// }
 	public List<ErabiltzailearenMota> getMotak() {
+		motak = new ArrayList<ErabiltzailearenMota>();
+		motak.add(new ErabiltzailearenMota(1, "ikaslea"));
+		motak.add(new ErabiltzailearenMota(2, "irakaslea"));
 		return motak;
 	}
 
