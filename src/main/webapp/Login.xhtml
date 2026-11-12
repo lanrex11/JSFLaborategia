@@ -50,6 +50,7 @@
 					<td><h3>Erabiltzailearen mota:</h3></td>
 					<td><h:selectOneMenu value="#{login.mota}" converter="omnifaces.SelectItemsConverter">
 							<f:selectItems value="#{login.motak}" />
+							<f:ajax event="change" listener="#{login.listener}" render="mezuak"/>
 						</h:selectOneMenu></td>
 				</tr>
 			</table>

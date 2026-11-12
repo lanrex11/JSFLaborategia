@@ -11,6 +11,7 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
+import jakarta.faces.event.AjaxBehaviorEvent;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import jakarta.inject.Named;
@@ -113,4 +114,9 @@ public class LoginBean implements Serializable {
 		}
 		return null;
 	}
+	
+	public void listener(AjaxBehaviorEvent event) {
+		FacesContext.getCurrentInstance().addMessage(null,
+		new FacesMessage("Erabiltzailearen mota:"+mota.getKodea()+"/"+mota.getErabMota()));
+		}
 }
