@@ -49,7 +49,7 @@ public class LoginBean implements Serializable {
 
 	public void setMota(ErabiltzailearenMota mota) {
 		this.mota = mota;
-		System.out.println("Erabiltzailearen mota: " + mota.getKodea() + "/" + mota.getErabMota());
+		//System.out.println("Erabiltzailearen mota: " + mota.getKodea() + "/" + mota.getErabMota());
 	}
 
 	// public List<ErabiltzailearenMota> getMotak() {
@@ -114,9 +114,16 @@ public class LoginBean implements Serializable {
 		}
 		return null;
 	}
-	
+
 	public void listener(AjaxBehaviorEvent event) {
 		FacesContext.getCurrentInstance().addMessage(null,
-		new FacesMessage("Erabiltzailearen mota:"+mota.getKodea()+"/"+mota.getErabMota()));
-		}
+				new FacesMessage("Erabiltzailearen mota:" + mota.getKodea() + "/" + mota.getErabMota()));
+	}
+
+	public void onEventSelect(SelectEvent event) {
+		this.mota = (ErabiltzailearenMota) event.getObject();
+		// Egia esan, selection="#{login.mota}" atributuarekin ere lortzen da
+		FacesContext.getCurrentInstance().addMessage("nireForm:mezuak",
+				new FacesMessage("Erabiltzailearen mota (taula):" + mota.getKodea() + "/" + mota.getErabMota()));
+	}
 }
