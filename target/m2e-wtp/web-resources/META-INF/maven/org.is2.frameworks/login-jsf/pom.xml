@@ -69,8 +69,14 @@ Faces 4.0-ekin CDI-a beharrezkoa da.
 -->
 		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
-			<artifactId>weld-servlet-shaded</artifactId>
+			<artifactId>weld-servlet-core</artifactId>
 			<version>${weld.version}</version>
+		</dependency>
+		<!-- Hibernate 7 honakoa behar du: JBoss Logging 3.6; -->
+		<dependency>
+			<groupId>org.jboss.logging</groupId>
+			<artifactId>jboss-logging</artifactId>
+			<version>3.6.1.Final</version>
 		</dependency>
 		<!-- Probak: 'test' eremua, ez da WAR-ren sartzen -->
 		<dependency>
@@ -88,6 +94,18 @@ Faces 4.0-ekin CDI-a beharrezkoa da.
 			<groupId>org.omnifaces</groupId>
 			<artifactId>omnifaces</artifactId>
 			<version>4.7.17</version>
+		</dependency>
+
+		<!-- Hibernaterentzat-->
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>7.4.16.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>3.5.0</version>
 		</dependency>
 	</dependencies>
 	<build>
